@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Api {
+public final class Api {
 
-    @GetMapping(value = "/openapi.yml", produces   = "application/yaml")
+    @GetMapping(value = "/openapi.yml", produces = "application/yaml")
     public @ResponseBody byte[] getImage() throws IOException {
         InputStream in = getClass()
                 .getResourceAsStream("/openapi.yml");
