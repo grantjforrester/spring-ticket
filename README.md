@@ -45,6 +45,12 @@ export $(grep -v '^#' .env | xargs)
 java -jar target/spring-ticket-0.0.1-SNAPSHOT.jar
 ```
 
+Get the API documentation:
+
+```
+curl http://localhost:8080/openapi.yml
+```
+
 
 ## Troubleshooting
 
