@@ -16,23 +16,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class TicketController {
 
     @GetMapping("/tickets")
-    List<String> queryTickets() {
-        return List.of("foo", "bar", "baz");
+    List<TicketWithMetadata> queryTickets() {
+        return List.of(
+                new TicketWithMetadata("1", "1", "test-summary-1", "test-description-1", "open"),
+                new TicketWithMetadata("2", "1", "test-summary-2", "test-description-2", "open"));
     }
 
     @PostMapping("/tickets")
     @ResponseStatus(HttpStatus.CREATED)
-    String createTicket(@RequestBody String ticket) {
+    TicketWithMetadata createTicket(@RequestBody TicketWithMetadata ticket) {
         return ticket;
     }
 
     @GetMapping("/tickets/{id}")
-    String readTicket(@PathVariable String id) {
-        return id;
+    TicketWithMetadata readTicket(@PathVariable String id) {
+        return new TicketWithMetadata("1", "1", "test-summary-1", "test-description-1", "open");
     }
 
     @PutMapping("/tickets/{id}")
-    String updateTicket(@PathVariable String id, @RequestBody String ticket) {
+    TicketWithMetadata updateTicket(@PathVariable String id, @RequestBody TicketWithMetadata ticket) {
         return ticket;
     }
 
