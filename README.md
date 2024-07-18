@@ -37,6 +37,14 @@ Run the service dependencies only using docker-compose:
 docker-compose up
 ```
 
+Run the server only without Docker:
+
+```
+export $(grep -v '^#' .env | xargs)
+./mvnw clean package
+java -jar target/spring-ticket-0.0.1-SNAPSHOT.jar
+```
+
 
 ## Troubleshooting
 
