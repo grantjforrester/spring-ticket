@@ -14,33 +14,36 @@ public final class TicketService {
     @Autowired
     private Authorizer authorizer;
 
-    public List<TicketWithMetadata> queryTickets() {
+    @Autowired
+    private Repository<TicketWithMetadata> repository;
+
+    public List<TicketWithMetadata> queryTickets(QuerySpec query) {
         authorizer.isAuthorized(new Operation("QueryTickets"));
 
-        return List.of(
-                new TicketWithMetadata("1", "1", "test-summary-1", "test-description-1", "open"),
-                new TicketWithMetadata("2", "1", "test-summary-2", "test-description-2", "open"));
+        return repository.query((Query) query);
     }
 
     public TicketWithMetadata createTicket(TicketWithMetadata ticket) {
         authorizer.isAuthorized(new Operation("CreateTicket"));
 
-        return ticket;
+        return repository.create(ticket);
     }
 
     public TicketWithMetadata readTicket(String id) {
         authorizer.isAuthorized(new Operation("ReadTicket"));
 
-        return new TicketWithMetadata("1", "1", "test-summary-1", "test-description-1", "open");
+        return repository.read(id);
     }
 
-    public TicketWithMetadata updateTicket(String id, TicketWithMetadata ticket) {
+    public TicketWithMetadata updateTicket(TicketWithMetadata ticket) {
         authorizer.isAuthorized(new Operation("UpdateTicket"));
 
-        return ticket;
+        return repository.update(ticket);
     }
 
     public void deleteTicket(String id) {
         authorizer.isAuthorized(new Operation("DeleteTicket"));
+
+        repository.delete(id);
     }
 }

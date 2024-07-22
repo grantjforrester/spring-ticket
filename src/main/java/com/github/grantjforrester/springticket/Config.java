@@ -13,4 +13,9 @@ public class Config {
     public Authorizer getAuthorizer() {
         return new AlwaysAuthorize();
     }
+
+    @Bean
+    public Repository<TicketWithMetadata> Repository() {
+        return new ArrayTicketRepository();
+    }
 }
