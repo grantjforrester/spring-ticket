@@ -20,28 +20,28 @@ public final class TicketController {
     @Autowired
     private TicketService service;
 
-    @GetMapping("/tickets")
+    @GetMapping("/api/v1/tickets")
     List<TicketWithMetadata> queryTickets() {
         return service.queryTickets();
     }
 
-    @PostMapping("/tickets")
+    @PostMapping("/api/v1/tickets")
     @ResponseStatus(HttpStatus.CREATED)
     TicketWithMetadata createTicket(@RequestBody TicketWithMetadata ticket) {
         return service.createTicket(ticket);
     }
 
-    @GetMapping("/tickets/{id}")
+    @GetMapping("/api/v1/tickets/{id}")
     TicketWithMetadata readTicket(@PathVariable String id) {
         return service.readTicket(id);
     }
 
-    @PutMapping("/tickets/{id}")
+    @PutMapping("/api/v1/tickets/{id}")
     TicketWithMetadata updateTicket(@PathVariable String id, @RequestBody TicketWithMetadata ticket) {
         return service.updateTicket(id, ticket);
     }
 
-    @DeleteMapping("/tickets/{id}")
+    @DeleteMapping("/api/v1/tickets/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteTicket(@PathVariable String id) {
         service.deleteTicket(id);
