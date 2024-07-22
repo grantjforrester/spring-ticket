@@ -33,7 +33,7 @@ public final class TicketService {
 
     public TicketWithMetadata readTicket(String id) {
         authorizer.isAuthorized(new Operation("ReadTicket"));
-        validator.validate(id);
+        validator.validateUUID(id);
         return repository.read(id);
     }
 
@@ -45,7 +45,7 @@ public final class TicketService {
 
     public void deleteTicket(String id) {
         authorizer.isAuthorized(new Operation("DeleteTicket"));
-        validator.validate(id);
+        validator.validateUUID(id);
         repository.delete(id);
     }
 }

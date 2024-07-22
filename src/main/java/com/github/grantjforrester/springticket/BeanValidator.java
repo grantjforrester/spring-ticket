@@ -2,6 +2,7 @@ package com.github.grantjforrester.springticket;
 
 import java.util.Set;
 import java.util.StringJoiner;
+import java.util.UUID;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -22,6 +23,15 @@ public class BeanValidator implements Validator {
         throw new ValidationException(formatValidationErrors(errs));
     }
 
+    @Override
+    public void validateUUID(String id) throws ValidationException {
+        try {
+            UUID.fromString(id);
+        } catch (IllegalArgumentException ex) {
+            throw new ValidationException("invalid ticket id: " + id);
+        }
+    }
+
     private String formatValidationErrors(Set<ConstraintViolation<Object>> errors) {
         var jnr = new StringJoiner(",");
         for (var v : errors) {
@@ -29,4 +39,5 @@ public class BeanValidator implements Validator {
         }
         return jnr.toString();
     }
+
 }
