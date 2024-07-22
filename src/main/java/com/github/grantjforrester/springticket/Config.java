@@ -15,6 +15,11 @@ public class Config {
     }
 
     @Bean
+    public Validator getValidator() {
+        return new BeanValidator();
+    }
+
+    @Bean
     public Repository<TicketWithMetadata> Repository() {
         return new ArrayTicketRepository();
     }

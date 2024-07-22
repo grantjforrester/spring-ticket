@@ -30,4 +30,12 @@ public class ExceptionMapper extends ResponseEntityExceptionHandler {
         body.setDetail("version conflict");
         return handleExceptionInternal(exception, body, new HttpHeaders(), HttpStatus.CONFLICT, request);
     }
+
+    @ExceptionHandler(value = { ValidationException.class })
+    protected ResponseEntity<Object> handleNotValid(RuntimeException exception, WebRequest request) {
+        var body = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
+        body.setType(URI.create("ticket:err:badrequest"));
+        body.setDetail(exception.getMessage());
+        return handleExceptionInternal(exception, body, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
 }
