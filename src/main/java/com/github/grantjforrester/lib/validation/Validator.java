@@ -1,4 +1,4 @@
-package com.github.grantjforrester.springticket;
+package com.github.grantjforrester.lib.validation;
 
 public interface Validator {
 

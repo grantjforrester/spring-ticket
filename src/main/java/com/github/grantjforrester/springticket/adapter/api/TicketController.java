@@ -1,4 +1,4 @@
-package com.github.grantjforrester.springticket;
+package com.github.grantjforrester.springticket.adapter.api;
 
 import java.util.List;
 
@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.github.grantjforrester.lib.collection.Cql;
+import com.github.grantjforrester.lib.collection.QuerySpec;
+import com.github.grantjforrester.springticket.service.TicketService;
+import com.github.grantjforrester.springticket.service.TicketWithMetadata;
 
 @RestController
 public final class TicketController {

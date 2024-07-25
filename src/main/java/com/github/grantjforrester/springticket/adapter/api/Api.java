@@ -1,4 +1,4 @@
-package com.github.grantjforrester.springticket;
+package com.github.grantjforrester.springticket.adapter.api;
 
 import java.io.IOException;
 import java.io.InputStream;

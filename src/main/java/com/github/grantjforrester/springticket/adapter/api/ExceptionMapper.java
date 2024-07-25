@@ -1,4 +1,4 @@
-package com.github.grantjforrester.springticket;
+package com.github.grantjforrester.springticket.adapter.api;
 
 import java.net.URI;
 
@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import com.github.grantjforrester.lib.repository.ConflictException;
+import com.github.grantjforrester.lib.repository.NotFoundException;
+import com.github.grantjforrester.lib.validation.ValidationException;
 
 @ControllerAdvice
 public class ExceptionMapper extends ResponseEntityExceptionHandler {

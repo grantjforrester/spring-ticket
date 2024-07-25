@@ -1,4 +1,4 @@
-package com.github.grantjforrester.springticket;
+package com.github.grantjforrester.springticket.service;
 
 import java.util.List;
 
@@ -7,6 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.github.grantjforrester.lib.authz.Authorizer;
 import com.github.grantjforrester.lib.authz.Operation;
+import com.github.grantjforrester.lib.collection.QuerySpec;
+import com.github.grantjforrester.lib.repository.Query;
+import com.github.grantjforrester.lib.repository.Repository;
+import com.github.grantjforrester.lib.validation.Metadata;
+import com.github.grantjforrester.lib.validation.Model;
+import com.github.grantjforrester.lib.validation.Validator;
 
 @Service
 public final class TicketService {

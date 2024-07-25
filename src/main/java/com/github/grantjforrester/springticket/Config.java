@@ -5,6 +5,11 @@ import org.springframework.context.annotation.Configuration;
 
 import com.github.grantjforrester.lib.authz.AlwaysAuthorize;
 import com.github.grantjforrester.lib.authz.Authorizer;
+import com.github.grantjforrester.lib.repository.Repository;
+import com.github.grantjforrester.lib.validation.BeanValidator;
+import com.github.grantjforrester.lib.validation.Validator;
+import com.github.grantjforrester.springticket.adapter.repository.ArrayTicketRepository;
+import com.github.grantjforrester.springticket.service.TicketWithMetadata;
 
 @Configuration
 public class Config {

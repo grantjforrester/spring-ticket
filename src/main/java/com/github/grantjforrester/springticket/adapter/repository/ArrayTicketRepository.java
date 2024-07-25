@@ -1,8 +1,14 @@
-package com.github.grantjforrester.springticket;
+package com.github.grantjforrester.springticket.adapter.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import com.github.grantjforrester.lib.repository.ConflictException;
+import com.github.grantjforrester.lib.repository.NotFoundException;
+import com.github.grantjforrester.lib.repository.Query;
+import com.github.grantjforrester.lib.repository.Repository;
+import com.github.grantjforrester.springticket.service.TicketWithMetadata;
 
 public class ArrayTicketRepository implements Repository<TicketWithMetadata> {
 
@@ -49,7 +55,7 @@ public class ArrayTicketRepository implements Repository<TicketWithMetadata> {
     }
 
     @Override
-    public List<TicketWithMetadata> query(com.github.grantjforrester.springticket.Query query) {
+    public List<TicketWithMetadata> query(com.github.grantjforrester.lib.repository.Query query) {
         // TODO Auto-generated method stub
         return List.of(
                 new TicketWithMetadata("1", "1", "test-summary-1", "test-description-1", "open"),

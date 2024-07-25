@@ -1,4 +1,4 @@
-package com.github.grantjforrester.springticket;
+package com.github.grantjforrester.lib.validation;
 
 import java.util.Set;
 import java.util.StringJoiner;
