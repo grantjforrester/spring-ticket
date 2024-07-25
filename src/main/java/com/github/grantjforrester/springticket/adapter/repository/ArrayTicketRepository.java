@@ -6,7 +6,6 @@ import java.util.UUID;
 
 import com.github.grantjforrester.lib.repository.ConflictException;
 import com.github.grantjforrester.lib.repository.NotFoundException;
-import com.github.grantjforrester.lib.repository.Query;
 import com.github.grantjforrester.lib.repository.Repository;
 import com.github.grantjforrester.springticket.service.TicketWithMetadata;
 

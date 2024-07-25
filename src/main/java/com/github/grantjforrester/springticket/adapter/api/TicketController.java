@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.grantjforrester.lib.collection.Cql;
-import com.github.grantjforrester.lib.collection.QuerySpec;
 import com.github.grantjforrester.springticket.service.TicketService;
 import com.github.grantjforrester.springticket.service.TicketWithMetadata;
 
