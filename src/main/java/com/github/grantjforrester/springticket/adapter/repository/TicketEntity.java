@@ -2,8 +2,6 @@ package com.github.grantjforrester.springticket.adapter.repository;
 
 import java.util.UUID;
 
-import com.github.grantjforrester.springticket.service.TicketWithMetadata;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -23,24 +21,6 @@ public class TicketEntity {
     public String summary;
     public String description;
     public String status;
-
-    public TicketWithMetadata toTicket() {
-        return new TicketWithMetadata(id.toString(), Integer.toString(version), summary, description, status);
-    }
-
-    public static TicketEntity fromTicket(TicketWithMetadata ticket) {
-        var entity = new TicketEntity();
-
-        if (ticket.id() != null)
-            entity.id = UUID.fromString(ticket.id());
-        if (ticket.version() != null)
-            entity.version = Integer.parseInt(ticket.version());
-
-        entity.summary = ticket.summary();
-        entity.description = ticket.description();
-        entity.status = ticket.status();
-        return entity;
-    }
 
     @Override
     public boolean equals(Object obj) {
